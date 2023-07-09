@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
@@ -27,6 +28,7 @@ class AddBirthdayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupNavigation()
         showPicker()
+        changeButtonColor()
     }
 
     private fun showPicker() {
@@ -43,6 +45,13 @@ class AddBirthdayFragment : Fragment() {
         }
         binding.buttonLogin.setOnClickListener {
             // TODO
+        }
+    }
+
+    private fun changeButtonColor() {
+        binding.etBirthday.addTextChangedListener { text ->
+            val birthday = text?.toString() ?: ""
+            binding.buttonLogin.isEnabled = birthday.isNotEmpty()
         }
     }
 

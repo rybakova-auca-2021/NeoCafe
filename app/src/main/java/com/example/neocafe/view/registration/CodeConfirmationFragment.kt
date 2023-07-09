@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
@@ -30,6 +31,7 @@ class CodeConfirmationFragment : Fragment() {
         button = binding.buttonSendAgain
         timerUtil = TimerUtil(requireContext(), button, findNavController())
         timerUtil.startTimer(60000, 1000)
+        changeButtonColor()
     }
 
     override fun onDestroyView() {
@@ -43,6 +45,13 @@ class CodeConfirmationFragment : Fragment() {
         }
         binding.buttonConfirm.setOnClickListener {
             findNavController().navigate(R.id.action_codeConfirmationFragment_to_addBirthdayFragment)
+        }
+    }
+
+    private fun changeButtonColor() {
+        binding.etCode.addTextChangedListener { text ->
+            val code = text?.toString() ?: ""
+            binding.buttonConfirm.isEnabled = code.isNotEmpty()
         }
     }
 }

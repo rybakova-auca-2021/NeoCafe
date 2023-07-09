@@ -15,6 +15,6 @@
     <string name="confirm">Подтвердить</string>
     <string name="msg_sendCodeAgain">Если код не пришел, нажмите кнопку отправить повторно</string>
     <string name="birthday">Дата рождения</string>
-    <string name="msg_enter_birthday">Введите дату рожденя для дольнейшего начисления бонусов</string>
+    <string name="msg_enter_birthday">Введите дату рожденя для дальнейшего начисления бонусов</string>
     <string name="skip">Пропустить</string>
 </resources>

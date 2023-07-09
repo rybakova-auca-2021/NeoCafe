@@ -93,7 +93,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/disabled_btn"
+        android:backgroundTint="@drawable/btn_background"
         android:enabled="false"
         android:text="@string/login"
         android:textAllCaps="false"
