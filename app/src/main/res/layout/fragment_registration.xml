@@ -21,11 +21,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_birthday"
+        android:id="@+id/et_name"
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
         android:autofillHints="name"
+        android:textAlignment="center"
         android:background="@drawable/rounded_edit_text"
         android:inputType="textPersonName"
         android:textColor="@color/black"
@@ -59,9 +60,9 @@
         android:text="@string/name"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_birthday"
-        app:layout_constraintEnd_toEndOf="@+id/et_birthday"
-        app:layout_constraintStart_toStartOf="@+id/et_birthday" />
+        app:layout_constraintBottom_toTopOf="@+id/et_name"
+        app:layout_constraintEnd_toEndOf="@+id/et_name"
+        app:layout_constraintStart_toStartOf="@+id/et_name" />
 
     <TextView
         android:id="@+id/phone_title"
@@ -81,7 +82,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@color/disabled_btn"
+        android:backgroundTint="@drawable/btn_background"
         android:enabled="false"
         android:text="@string/next"
         android:textAllCaps="false"

@@ -17,4 +17,5 @@
     <string name="birthday">Дата рождения</string>
     <string name="msg_enter_birthday">Введите дату рожденя для дальнейшего начисления бонусов</string>
     <string name="skip">Пропустить</string>
+    <string name="enter">Вход</string>
 </resources>
