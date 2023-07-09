@@ -29,5 +29,8 @@ class MainFragment : Fragment() {
         binding.buttonRegister.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_registrationFragment)
         }
+        binding.buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+        }
     }
 }

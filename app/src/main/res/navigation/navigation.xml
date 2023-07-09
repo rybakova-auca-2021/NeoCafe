@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -43,5 +46,22 @@
         <action
             android:id="@+id/action_addBirthdayFragment_to_codeConfirmationFragment"
             app:destination="@id/codeConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.neocafe.view.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_loginCodeConfirmFragment"
+            app:destination="@id/loginCodeConfirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginCodeConfirmFragment"
+        android:name="com.example.neocafe.view.login.LoginCodeConfirmFragment"
+        android:label="LoginCodeConfirmFragment" >
+        <action
+            android:id="@+id/action_loginCodeConfirmFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
