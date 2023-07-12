@@ -7,16 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
 import com.example.neocafe.databinding.FragmentAddBirthdayBinding
+import com.example.neocafe.viewModel.BirthdayViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class AddBirthdayFragment : Fragment() {
     private lateinit var binding: FragmentAddBirthdayBinding
+    private val viewModel: BirthdayViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,13 +46,23 @@ class AddBirthdayFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_addBirthdayFragment_to_codeConfirmationFragment)
         }
-        binding.skip.setOnClickListener {
-            // TODO
-        }
         binding.buttonLogin.setOnClickListener {
-            showArchiveConfirmationDialog()
-            // TODO
+            setupBirthday()
         }
+    }
+
+    private fun setupBirthday() {
+        val birthday = binding.etBirthday.text.toString()
+        viewModel.addBirthday(
+            birthday,
+            onSuccess = {
+                showArchiveConfirmationDialog()
+                findNavController().navigate(R.id.action_addBirthdayFragment_to_loginFragment)
+            },
+            onError = {
+                Toast.makeText(requireContext(), "Try again", Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun changeButtonColor() {
