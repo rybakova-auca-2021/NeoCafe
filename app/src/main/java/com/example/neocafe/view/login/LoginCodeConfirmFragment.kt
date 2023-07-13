@@ -6,16 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
-import com.example.neocafe.Utils.TimerUtil
+import com.example.neocafe.util.TimerUtil
 import com.example.neocafe.databinding.FragmentCodeConfirmationBinding
+import com.example.neocafe.viewModel.LoginCodeViewModel
 
 class LoginCodeConfirmFragment : Fragment() {
     private lateinit var binding: FragmentCodeConfirmationBinding
     private lateinit var timerUtil: TimerUtil
     private lateinit var button: Button
+    private val viewModel: LoginCodeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,8 +48,21 @@ class LoginCodeConfirmFragment : Fragment() {
             findNavController().navigate(R.id.action_loginCodeConfirmFragment_to_loginFragment)
         }
         binding.buttonConfirm.setOnClickListener {
-            // TODO
+            setupCodeConfirm()
         }
+    }
+
+    private fun setupCodeConfirm() {
+        val code = binding.etCode.text.toString()
+        viewModel.loginCode(
+            code.toInt(),
+            onSuccess = {
+                Toast.makeText(requireContext(), "Вход выполнен успешно", Toast.LENGTH_SHORT).show()
+            },
+            onError = {
+                Toast.makeText(requireContext(), "Try again", Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun changeButtonColor() {
