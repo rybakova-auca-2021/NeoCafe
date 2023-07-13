@@ -1,4 +1,4 @@
-package com.example.neocafe.Utils
+package com.example.neocafe.util
 
 import android.annotation.SuppressLint
 import android.content.Context

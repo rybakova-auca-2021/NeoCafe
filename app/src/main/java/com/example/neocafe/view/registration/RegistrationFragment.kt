@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
 import com.example.neocafe.databinding.FragmentRegistrationBinding
-import com.example.neocafe.viewModel.GetCodeViewModel
 import com.example.neocafe.viewModel.RegistrationViewModel
 
 class RegistrationFragment : Fragment() {

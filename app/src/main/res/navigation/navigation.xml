@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_addBirthdayFragment_to_codeConfirmationFragment"
             app:destination="@id/codeConfirmationFragment" />
+        <action
+            android:id="@+id/action_addBirthdayFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
