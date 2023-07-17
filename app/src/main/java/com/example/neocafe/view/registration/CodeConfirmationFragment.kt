@@ -60,7 +60,7 @@ class CodeConfirmationFragment : Fragment() {
                 findNavController().navigate(R.id.action_codeConfirmationFragment_to_addBirthdayFragment)
             },
             onError = {
-                Toast.makeText(requireContext(), "Try again", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.try_again_msg), Toast.LENGTH_SHORT).show()
             }
         )
     }

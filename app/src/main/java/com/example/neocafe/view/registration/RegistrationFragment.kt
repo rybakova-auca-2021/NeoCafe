@@ -47,7 +47,7 @@ class RegistrationFragment : Fragment() {
                 findNavController().navigate(R.id.action_registrationFragment_to_codeConfirmationFragment)
             },
             onError = {
-                Toast.makeText(requireContext(), "Try Again", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.try_again_msg), Toast.LENGTH_SHORT).show()
             }
         )
     }

@@ -1,12 +1,10 @@
 package com.example.neocafe.view.registration
 
 import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -14,9 +12,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
 import com.example.neocafe.databinding.FragmentAddBirthdayBinding
+import com.example.neocafe.util.DatePickerUtil
 import com.example.neocafe.viewModel.BirthdayViewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
 class AddBirthdayFragment : Fragment() {
     private lateinit var binding: FragmentAddBirthdayBinding
@@ -60,7 +57,7 @@ class AddBirthdayFragment : Fragment() {
                 findNavController().navigate(R.id.action_addBirthdayFragment_to_loginFragment)
             },
             onError = {
-                Toast.makeText(requireContext(), "Try again", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.try_again_msg), Toast.LENGTH_SHORT).show()
             }
         )
     }
@@ -73,30 +70,9 @@ class AddBirthdayFragment : Fragment() {
     }
 
     private fun showDatePicker() {
-        val calendar = Calendar.getInstance()
-        val currentYear = calendar.get(Calendar.YEAR)
-        val currentMonth = calendar.get(Calendar.MONTH)
-        val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val datePickerDialog = DatePickerDialog(
-            requireContext(),
-            { _, year, month, day ->
-                val selectedCalendar = Calendar.getInstance()
-                selectedCalendar.set(Calendar.YEAR, year)
-                selectedCalendar.set(Calendar.MONTH, month)
-                selectedCalendar.set(Calendar.DAY_OF_MONTH, day)
-
-                val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-                val formattedDate = dateFormat.format(selectedCalendar.time)
-
-                binding.etBirthday.setText(formattedDate)
-            },
-            currentYear,
-            currentMonth,
-            currentDay
-        )
-
-        datePickerDialog.show()
+        binding.etBirthday.setOnClickListener {
+            DatePickerUtil.showDatePicker(requireContext(), binding.etBirthday)
+        }
     }
 
     private fun showArchiveConfirmationDialog() {

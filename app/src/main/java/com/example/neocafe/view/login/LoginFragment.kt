@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_loginCodeConfirmFragment)
         },
         onError = {
-            Toast.makeText(requireContext(),"Try again", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),getString(R.string.try_again_msg), Toast.LENGTH_SHORT).show()
         })
     }
 

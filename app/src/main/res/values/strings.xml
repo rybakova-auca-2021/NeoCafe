@@ -18,4 +18,6 @@
     <string name="msg_enter_birthday">Введите дату рожденя для дальнейшего начисления бонусов</string>
     <string name="skip">Пропустить</string>
     <string name="enter">Вход</string>
+    <string name="login_success_msg">Вход выполнен успешно</string>
+    <string name="try_again_msg">Try again</string>
 </resources>

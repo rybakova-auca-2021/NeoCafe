@@ -57,10 +57,10 @@ class LoginCodeConfirmFragment : Fragment() {
         viewModel.loginCode(
             code.toInt(),
             onSuccess = {
-                Toast.makeText(requireContext(), "Вход выполнен успешно", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.login_success_msg), Toast.LENGTH_SHORT).show()
             },
             onError = {
-                Toast.makeText(requireContext(), "Try again", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.try_again_msg), Toast.LENGTH_SHORT).show()
             }
         )
     }
